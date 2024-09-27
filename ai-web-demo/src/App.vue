@@ -18,5 +18,6 @@ const zIndex = 3000
 <style scoped>
 .home {
   /* padding: 24px 0; */
+  background-color: #ccc;
 }
 </style>
