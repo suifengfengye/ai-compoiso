@@ -26,12 +26,12 @@ const aiAnswerHandler = ref({
   top: 0,
 })
 const castList = ref([
-  { label: '润色-口语化', value: 'polish-口语化' },
-  { label: '润色-更活泼', value: 'polish-更活泼' },
-  { label: '润色-更正式', value: 'polish-更正式' },
+  { label: '润色-口语化', value: 'polish-colloquial' },
+  { label: '润色-更活泼', value: 'polish-lively' },
+  { label: '润色-更正式', value: 'polish-formal' },
   { label: '续写', value: 'continue_writing' },
-  { label: '缩短篇幅', value: 'shorten_text' },
-  { label: '扩充篇幅', value: 'expand_text' },
+  { label: '缩短篇幅', value: 'shorten' },
+  { label: '扩充篇幅', value: 'expand' },
 ]);
 const question = ref('')
 const content = ref(`小文盲在班里是学习最差的，整天像这假期该怎么玩，作业没有一天写完过。新学期又开始了，他背着仿佛千斤重的书包，在回家的路上。
@@ -98,7 +98,7 @@ const confirmThrowAway = () => {
 
 // 可能多次触发
 const handleClickOutside = (e: any) => {
-  debugger
+  // debugger
   const _isClickChildren = EventUtil.isClickChildren({
     event: e,
     classNames: ['input-box', 'dropdown-box', 'ai-answer-box'],
@@ -118,6 +118,9 @@ const handleSearchAI = async (params: any) => {
   // 使用fetch()请求远程的流式API的返回
   fetching.value = true;
   aiAnswerHandler.value.show = true
+  if (params.question === undefined) {
+    params.question = ''
+  }
   preAIParams = params
   const streamReader = await fetchAI(params)
   if (streamReader) {
@@ -134,14 +137,14 @@ const handleSearchAI = async (params: any) => {
 
 const handleClickCast = (item: any) => {
   const value = item.value
-  const [type, sub_type] = value.split('-')
-  const text = (quillEditorRef.value as any).getText()
+  const [op_type, op_sub_type] = value.split('-')
+  const content = (quillEditorRef.value as any).getText()
   const params: any = {
-    text,
-    type,
+    content,
+    op_type,
   }
-  if (sub_type) {
-    params.sub_type = sub_type
+  if (op_sub_type) {
+    params.sub_type = op_sub_type
   }
   handleSearchAI(params)
   showMenu.value = false;

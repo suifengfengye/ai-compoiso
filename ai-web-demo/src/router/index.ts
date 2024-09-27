@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import DocView from '../views/DocView.vue'
+import Home from '../views/Home.vue'
 import DocCore from '../views/DocCore.vue'
 // import DocCoreOld from '../views/DocCoreOld.vue'
 
@@ -9,7 +9,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: DocView
+      component: Home
     },
     {
       path: '/doc',

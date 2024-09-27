@@ -64,10 +64,10 @@ async def get_ai_docs(params: Annotated[AIDocBodyType, ...] = Body()):
             "formal": "更正式",
         }
 
-        action = action_dict[op_type.value]
+        action = action_dict[op_type]
         if op_type == OpTypeEnum.polish:
             action = f"{action},让内容{
-                sub_action_dict[op_sub_type.value or OpSubTypeEnum.colloquial.value]}"
+                sub_action_dict[op_sub_type or OpSubTypeEnum.colloquial.value]}"
         exec_prompt = prompt
 
     # prompt_text = exec_prompt.invoke({
