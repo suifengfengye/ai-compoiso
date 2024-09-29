@@ -72,6 +72,9 @@ export const EventUtil = {
     // const notCloseBox = ['ev-stop-dropdown', 'persons-select-dropdown-box']
     const foundBox = (className: string, eleId: string) => {
       let isBox = false
+      if (!classNames) {
+        return false
+      }
       for (let i = 0, len = classNames.length; i < len; i++) {
         if (className && className.indexOf && className.indexOf(classNames[i]) !== -1) {
           isBox = true

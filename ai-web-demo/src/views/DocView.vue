@@ -38,8 +38,8 @@ const castList = ref([
     value: 'expand_text',
   },
 ])
-const contentRef = ref(null)
-const inputRef = ref(null)
+const contentRef = ref<any>(null)
+const inputRef = ref<any>(null)
 const conversationId = ref(`c-${Date.now()}`)
 
 const handleMouseRight = (e: any) => {

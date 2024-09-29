@@ -1,0 +1,20 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  frontend:
+    image: ghcr.io/<your-username>/frontend:latest
+    ports:
+      - "80:80"
+    networks:
+      - my_network
+
+  # backend:
+  #   image: ghcr.io/<your-username>/backend:latest
+  #   ports:
+  #     - "8000:8000"
+  #   networks:
+  #     - my_network
+
+networks:
+  my_network:
