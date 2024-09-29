@@ -21,7 +21,7 @@ jobs:
       - name: Build frontend
         run: |
           cd ai-web-demo
-          npm run Build
+          npm run build
 
       - name: Build Docker Image
         run: |
