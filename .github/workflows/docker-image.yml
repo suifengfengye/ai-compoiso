@@ -25,7 +25,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t ghcr.io/${{ github.repository }}/ai-composiso-frontend:${{ github.sha }} -f Dockerfile .
+          docker build -t ghcr.io/funy-z/ai-composiso-frontend:${{ github.sha }} -f Dockerfile .
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v2
@@ -36,4 +36,4 @@ jobs:
 
       - name: Push Docker Image to GitHub Container Registry
         run: |
-          docker push ghcr.io/${{ github.repository }}/ai-composiso-frontend:${{ github.sha }}
+          docker push ghcr.io/funy-z/ai-composiso-frontend:${{ github.sha }}
