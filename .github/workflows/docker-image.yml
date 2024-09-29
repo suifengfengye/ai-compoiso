@@ -28,7 +28,7 @@ jobs:
           docker build -t ghcr.io/${{ github.repository }}/ai-composiso-frontend:${{ github.sha }} -f Dockerfile .
 
       - name: Log in to GitHub Container Registry
-        uses: docker/login-action@v4
+        uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
