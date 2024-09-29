@@ -4,7 +4,7 @@ import { ElConfigProvider } from 'element-plus'
 
 const size = 'default'
 const zIndex = 3000
-
+console.log('@@@触发GitAction构建')
 </script>
 
 <template>
